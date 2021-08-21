@@ -3,19 +3,21 @@
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
     if(location.pathname.endsWith('login.html')){
-        let datos = document.getElementById('boton');
-        datos.addEventListener('click', function(evento) {
-            evento.preventDefault;
-        const email = document.getElementById('id-email');
-        localStorage.setItem('id-email',email.value);
-        const cons = document.getElementById('id-const');
-        localStorage.setItem('id-const', cons.value); ()=>
-        email.value == localStorage.getItem('id-email') && cons.value == localStorage.getItem('id-const') 
-        alert('Usario Registrado');
-        window.location.href = 'index.html';
-        })
-       } else if(email,cons){
-           email.value != localStorage.getItem('id-email') || cons.value != localStorage.getItem('id-const')
-           return alert('Error Email o Contraseña incorrectos')
-       }
+        let datos = document.getElementById('login');
+        datos.addEventListener('submit', function(evento) {
+            evento.preventDefault();
+            var email = document.getElementById('id-email').value;
+            localStorage.setItem('id-email',email);
+            var pass  = document.getElementById('id-const').value;
+            localStorage.setItem('id-const', pass);
+           if((email != '') && (pass != '')){
+               alert('Usario Registrado')
+               window.location.href = 'index.html';
+            }else{
+                alert('Error Email o Contraseña incorrectos');
+            }
+            
+        });
+    }
 });
+
